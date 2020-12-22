@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="logo">
+        <img src="image/logo.png" alt="Momsbelief">
+    </div>
+    <a href='/signin'>Sign-in</a>
+    <h1>Mea Chatbot v.2</h1>
+    <div class="container">
+      <button onclick=onChat() class="open-button">Click to chat</button>
+      <div class="chatbot">
+        <button onclick=closeChat() class="close-button">Chat</button>
+        <div id="webchat" role="main"></div>
+
+
+
+
+    </div>
+
+    </div>
+
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script src="../js/index.js"></script>
+  <script>
+    function onChat(){
+  document.querySelector(".chatbot").style.display = "block";
+
+  };
+
+  function closeChat(){
+    document.querySelector(".chatbot").style.display = "none";
+
+  }
+  
+
+</script>
+
+  </body>
+</html>

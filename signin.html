@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Demo</title>
+    <link rel="stylesheet" href="css/login.css">
+  </head>
+  <body>
+    <div class="logo">
+      <img src="image/logo.png" alt="Momsbelief">
+    </div>
+    <a href='/'>Back</a>
+    <div class="container">
+       <div class='form'> 
+        <h1>Sign-in</h1>
+        <div class='custom-input'>
+            <input id="email" type='text' name='email' autocomplete="off" required/>
+            <label>
+                <span>Email</span>
+            </label>
+            
+        </div>
+        <div class='custom-input'>
+            <input id="pass" type='password' name='email' autocomplete="off" required/>
+            <label>
+                <span>Password</span>
+            </label>
+            
+        </div>
+        <button class="submit" type="submit" onClick="onSubmit()">Submit</button>
+    </div>
+</div>
+
+
+  <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script src="../js/signin.js"></script>
+  </body>
+</html>
