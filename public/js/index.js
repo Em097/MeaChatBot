@@ -34,16 +34,6 @@ deleteAllCookies()
               
            };
 
-  
-  
-
-
-        const webPonyfill =  window.WebChat.createCognitiveServicesSpeechServicesPonyfillFactory({
-            credentials: {
-              region: 'eastus',
-              subscriptionKey: 'eba68efb3f6b443aad82e12999de0624'
-            }
-          })
 
 
 

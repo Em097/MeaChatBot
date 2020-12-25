@@ -75,9 +75,40 @@ function getCookie(cname) {
             }
           }).then(response => response.json())
           .then(result => {
-            document.cookie = "token=" + result.token + ";"
-            document.cookie = "conversationId=" + result.conversationId + ";"
-            chatBot(result.token, result.conversationId)
+
+            fetch("https://directline.botframework.com/v3/directline/conversations", {
+            method: 'POST',
+            headers: {
+                "Authorization": 'Bearer ' + result.token
+            }
+            }).then(res => res.json())
+              .then(res => {
+
+                let bodyText = {
+                  type: "message",
+                  from: {
+                      id: "user1",
+                      name: userName
+                  },
+                  text: "Hi"
+              }
+                      fetch("https://directline.botframework.com/v3/directline/conversations/" + res.conversationId + "/activities", {
+                              method: 'POST',
+                              headers: {
+                                  "Authorization": 'Bearer ' + res.token,
+                                  'Content-Type': 'application/json'
+                              },
+                              body: JSON.stringify(bodyText)
+                          })
+                          .then(res => res.json())
+
+                document.cookie = "token=" + result.token + ";"
+                 document.cookie = "conversationId=" + result.conversationId + ";"
+                 chatBot(result.token, result.conversationId)
+              })
+              
+            
+            
           })
           .catch(error => console.log('error', error));
           }else{

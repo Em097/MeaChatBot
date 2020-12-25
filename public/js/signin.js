@@ -17,7 +17,7 @@ const onSubmit = () => {
 
     const pass = document.getElementById("pass").value;
 
-    if(email == "aamir@gmail.com" || pass == "aamir123") {
+    if(email !== "aamir@gmail.com" || pass !== "aamir123") {
 
         document.cookie = "username=Aamir;";
         window.location.href = "/login"
