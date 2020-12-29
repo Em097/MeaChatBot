@@ -17,20 +17,18 @@ const onSubmit = () => {
 
     const pass = document.getElementById("pass").value;
 
-    const formData = new FormData();
+    const jsonBody = {
+        email: email,
+        pass: pass
+    }
 
-    formData.append("email", email);
-    formData.append("password", pass);
-    formData.append("client_id", "304");
-    formData.append("client_secret", "SfJdvJgkW8529mSp7AKBRnB5B2RIjrUaExeS1oia");
-    formData.append("provider", "customers");
 
-   fetch("http://opsadminstaging.momsbelief.com/api/v1/login", {
+   fetch("https://meabot.azurewebsites.net/userlogin", {
         method: 'POST',
         headers: {
-            "Accept": "application/json"
+            "Content-Type": "application/json"
         },
-        body: formData
+        body: JSON.stringify(jsonBody)
     }).then(res => res.json())
         .then(res => {
             let token = res.access_token
@@ -41,7 +39,6 @@ const onSubmit = () => {
 
             fetch("https://meabot.azurewebsites.net/user",{
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': "application/json"
                 },
@@ -62,7 +59,6 @@ const onSubmit = () => {
 
                 fetch("https://meabot.azurewebsites.net/child",{
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': "application/json"
                 },

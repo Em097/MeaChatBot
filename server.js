@@ -4,6 +4,7 @@ const cors = require('cors')
 const path = require('path')
 const fetch = require('node-fetch');
 const bodyParser =  require('body-parser')
+var FormData = require('form-data');
 
 require('dotenv').config()
 
@@ -28,6 +29,31 @@ app.get('/signin',(req, res) => {
 app.get('/login', (req, res) => {
     res.sendFile( __dirname + '/login.html')
 })
+
+app.post('/userlogin', (req, res) => {
+    const data = req.body;
+    const formData = new FormData();
+
+    formData.append("email", data.email);
+    formData.append("password", data.pass);
+    formData.append("client_id", "304");
+    formData.append("client_secret", "SfJdvJgkW8529mSp7AKBRnB5B2RIjrUaExeS1oia");
+    formData.append("provider", "customers");
+
+ 
+    fetch("http://opsadminstaging.momsbelief.com/api/v1/login", {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json",
+        },
+        body: formData
+    }).then(res => res.json())
+    .then(data => {
+        console.log(data)
+        res.json(data)
+    })
+})
+
 
 
 app.post('/user', (req, res) => {
