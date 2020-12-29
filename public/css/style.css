@@ -82,11 +82,13 @@ a {
   position: absolute;
   top: 50px;
   right: 50px;
+  width: 100px;
+  text-align: center;
   text-decoration: none;
-  color: white;
+  color: #19a9a1;
   padding: 10px;
   border-radius: 10px;
-  background-color: #19a9a1;
+  background-color: transparent;
   opacity: 0.8;
 }
 
