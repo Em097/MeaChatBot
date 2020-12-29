@@ -42,7 +42,7 @@ deleteAllCookies()
                  directLine: window.WebChat.createDirectLine({
                     secret: 'K-v3KkOskR0.tN_OEKOPJfhMOQRMHmLIMBTtWZrHPTKyWXTGPrq8X2I'
                  }),
-                 userID: 'user1',
+                 userID: 'anonymous',
                  styleOptions
               },
               document.getElementById('webchat')

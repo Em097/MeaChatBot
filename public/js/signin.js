@@ -17,14 +17,72 @@ const onSubmit = () => {
 
     const pass = document.getElementById("pass").value;
 
-    if(email !== "aamir@gmail.com" || pass !== "aamir123") {
+    const formData = new FormData();
 
-        document.cookie = "username=Aamir;";
-        window.location.href = "/login"
-    }else {
-        alert("wrong credentials")
-    }
+    formData.append("email", email);
+    formData.append("password", pass);
+    formData.append("client_id", "304");
+    formData.append("client_secret", "SfJdvJgkW8529mSp7AKBRnB5B2RIjrUaExeS1oia");
+    formData.append("provider", "customers");
 
+   fetch("http://opsadminstaging.momsbelief.com/api/v1/login", {
+        method: 'POST',
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    }).then(res => res.json())
+        .then(res => {
+            let token = res.access_token
+        if(token){
+            let parse = {
+                Access: token
+            }
 
+            fetch("http://localhost:3000/user",{
+                method: 'POST',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify(parse)
+            }).then(res => res.json())
+            .then(res => {                
+                document.cookie = "username=" + res.data.user.name + ";"
+                document.cookie = "loc_id=" + res.data.location.id + ";"
+                document.cookie = "org_id=" + res.data.org.id + ";"
+                document.cookie = "user_id=convoId" + res.data.user.id + ";"
+                document.cookie = "accessToken=" + token + ";"
+
+                let parse2 =  {
+                    Access: token,
+                    orgId: res.data.org.id,
+                    locId:res.data.location.id
+                }
+
+                fetch("http://localhost:3000/child",{
+                method: 'POST',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify(parse2)
+            }).then(res => res.json())
+                .then(res => {
+                    document.cookie = "crp=" + res.data[0].plan_name + ";" 
+                    window.location.href = "/login"
+                
+                })
+                
+            }).catch(err => console.log(err))
+                    
+
+            
+        }else {
+            alert("Wrong Credientials")
+            window.location.reload()
+        }
+    })
 }
+
+
+
 

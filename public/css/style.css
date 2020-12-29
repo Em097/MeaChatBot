@@ -1,88 +1,81 @@
-body{
-background-image: url("../image/1.gif");
-background-repeat: no-repeat;
-background-size: cover;
+body {
+  background-image: url("../image/2.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-
 
 .logo {
-display: block;
-text-align: center;
-margin-top: 50px;
+  display: block;
+  text-align: center;
+  margin-top: 50px;
 }
 
-h1{
-margin-top: 80px;
-text-align: center;
-color: #19a9a1;
-font-family: sans-serif;
-font-size: 30px;
-
+h1 {
+  margin-top: 80px;
+  text-align: center;
+  color: #19a9a1;
+  font-family: sans-serif;
+  font-size: 30px;
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
   top: 20px;
 }
 
 .chatbot {
-display: none;
-background-color:rgba(0, 0, 0, 0.6);
-height: auto;
-width: 380px;
-border:1px solid black;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: auto;
+  width: 380px;
+  border: 1px solid black;
 }
 .open-button {
-display: block;
-background-color: #19a9a1;
-color: white;
-padding: 16px 20px;
-border: none;
-cursor: pointer;
-opacity: 0.8;
-position: absolute;
-width: 380px;
-border-radius: 5px 5px 5px 5px;
+  display: block;
+  background-color: #19a9a1;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  width: 380px;
+  border-radius: 5px 5px 5px 5px;
 }
 .open-button:hover {
-opacity: 1;
+  opacity: 1;
 }
 .close-button {
-
-background-color: #19a9a1;
-color: white;
-padding: 16px 20px;
-border: none;
-cursor: pointer;
-position: relative;
-top:0;
-width: 100%;
-border-radius: 5px 5px 0 0;
+  background-color: #19a9a1;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
 }
 
-#webchat{
+#webchat {
   position: relative;
-  border:none;
+  border: none;
   height: 400px;
   width: 100%;
-  
-  }
+}
 
-@media screen and (min-width: 360px) and (min-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)
-{
-  body{
-   background-image: url("../image/2.jpg");
-   background-size: auto;
-
+@media screen and (min-width: 360px) and (min-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  body {
+    background-image: url("../image/2.jpg");
+    background-size: auto;
   }
-  h1{
-  margin-top: 30px;
-  font-size: 30px;
+  h1 {
+    margin-top: 30px;
+    font-size: 30px;
   }
 }
 
-a{
+a {
   font-size: 24px;
   position: absolute;
   top: 50px;

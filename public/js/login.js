@@ -12,7 +12,16 @@ function getCookie(cname) {
     }
     return "";
   }
-  var userName = getCookie("username");
+  const userName = getCookie("username");
+  const chatToken = getCookie("token")
+  const conId = getCookie("conversationId")
+  const orgId = getCookie("org_id")
+  const locId =  getCookie("loc_id")
+  const accessToken = getCookie("accessToken")
+  const crp = getCookie("crp")
+  const userid = getCookie("user_id")
+  console.log(orgId, locId, crp, userName, userid)
+
 
   
 
@@ -39,7 +48,7 @@ function getCookie(cname) {
               
            };
 
-           const chatBot =  (chatToken, convoId) => {
+           const chatBot =  (chatToken, conId, userId) => {
             window.WebChat.renderWebChat(
               {
                  directLine: window.WebChat.createDirectLine({
@@ -47,7 +56,7 @@ function getCookie(cname) {
                  }),
                  conversationId: conId,
                  webSpeechPonyfillFactory: webPonyfill,
-                 userID: 'user1',
+                 userID: userId,
                  username: userName,
                  styleOptions
               },
@@ -55,8 +64,8 @@ function getCookie(cname) {
            );
            }
   
-        const chatToken = getCookie("token")
-        const conId = getCookie("conversationId")
+        
+        
 
         const webPonyfill =  window.WebChat.createCognitiveServicesSpeechServicesPonyfillFactory({
             credentials: {
@@ -67,7 +76,7 @@ function getCookie(cname) {
           
 
           if(!chatToken){
-            const token = fetch("https://directline.botframework.com/v3/directline/tokens/generate", {
+             fetch("https://directline.botframework.com/v3/directline/tokens/generate", {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -87,10 +96,14 @@ function getCookie(cname) {
                 let bodyText = {
                   type: "message",
                   from: {
-                      id: "user1",
-                      name: userName
+                      id: userid,
+                      name: userName,
+                      org_id: orgId,
+                      loc_id: locId,
+                      crp: crp,
+                      token: accessToken
                   },
-                  text: "Hi"
+                  text: "Start"
               }
                       fetch("https://directline.botframework.com/v3/directline/conversations/" + res.conversationId + "/activities", {
                               method: 'POST',
@@ -104,7 +117,7 @@ function getCookie(cname) {
 
                 document.cookie = "token=" + result.token + ";"
                  document.cookie = "conversationId=" + result.conversationId + ";"
-                 chatBot(result.token, result.conversationId)
+                 chatBot(result.token, result.conversationId, userid)
               })
               
             
@@ -113,7 +126,7 @@ function getCookie(cname) {
           .catch(error => console.log('error', error));
           }else{
 
-            chatBot(chatToken, conId)
+            chatBot(chatToken, conId, userid)
           }
 
          
