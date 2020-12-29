@@ -1,7 +1,8 @@
 body {
-  background-image: url("../image/2.gif");
+  background-image: url("../image/1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: sans-serif;
 }
 
 .logo {
@@ -28,7 +29,7 @@ h1 {
   background-color: rgba(0, 0, 0, 0.6);
   height: auto;
   width: 380px;
-  border: 1px solid black;
+  border-radius: 5px 5px 0 0;
 }
 .open-button {
   display: block;
@@ -76,12 +77,19 @@ h1 {
 }
 
 a {
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: lighter;
   position: absolute;
   top: 50px;
   right: 50px;
   text-decoration: none;
-  color: #19a9a1;
+  color: white;
   padding: 10px;
-  border: 1px solid #19a9a1;
+  border-radius: 10px;
+  background-color: #19a9a1;
+  opacity: 0.8;
+}
+
+a:hover {
+  opacity: 1;
 }

@@ -29,7 +29,10 @@ deleteAllCookies()
               sendBoxButtonColor: 'white',
               sendBoxButtonColorOnHover: '#19a9a1',
               sendBoxPlaceholderColor: 'white',
-              sendBoxBorderTop: 'solid 1px white'
+              sendBoxBorderTop: 'solid 1px white',
+              sendBoxTextColor: 'white',
+              showSpokenText: true
+
   
               
            };

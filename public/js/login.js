@@ -20,11 +20,6 @@ function getCookie(cname) {
   const accessToken = getCookie("accessToken")
   const crp = getCookie("crp")
   const userid = getCookie("user_id")
-  console.log(orgId, locId, crp, userName, userid)
-
-
-  
-
   
     const styleOptions = {
               botAvatarBackgroundColor: "#19a9a1",
@@ -43,7 +38,9 @@ function getCookie(cname) {
               sendBoxButtonColor: 'white',
               sendBoxButtonColorOnHover: '#19a9a1',
               sendBoxPlaceholderColor: 'white',
-              sendBoxBorderTop: 'solid 1px white'
+              sendBoxBorderTop: 'solid 1px white',
+              sendBoxTextColor: 'white',
+              showSpokenText: true
   
               
            };
@@ -103,7 +100,7 @@ function getCookie(cname) {
                       crp: crp,
                       token: accessToken
                   },
-                  text: "Start"
+                  text: "Hi"
               }
                       fetch("https://directline.botframework.com/v3/directline/conversations/" + res.conversationId + "/activities", {
                               method: 'POST',
