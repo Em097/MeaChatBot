@@ -39,7 +39,7 @@ const onSubmit = () => {
                 Access: token
             }
 
-            fetch("http://localhost:3000/user",{
+            fetch("https://meabot.azurewebsites.net/user",{
                 method: 'POST',
                 headers: {
                     'Content-Type': "application/json"
@@ -59,7 +59,7 @@ const onSubmit = () => {
                     locId:res.data.location.id
                 }
 
-                fetch("http://localhost:3000/child",{
+                fetch("https://meabot.azurewebsites.net/child",{
                 method: 'POST',
                 headers: {
                     'Content-Type': "application/json"
