@@ -41,6 +41,7 @@ const onSubmit = () => {
 
             fetch("https://meabot.azurewebsites.net/user",{
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': "application/json"
                 },
@@ -61,6 +62,7 @@ const onSubmit = () => {
 
                 fetch("https://meabot.azurewebsites.net/child",{
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': "application/json"
                 },
